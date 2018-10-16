@@ -1,0 +1,18 @@
+*** projet 2 Exo ***
+
+Ajouter dans l'interface un bouton "Test ajax 3".
+
+Le clic le sur le bouton déclenchera une requête ajax.
+Cette requête permettra d'obtenir au format json une liste
+de fruits.
+Chaque fruit de cette collection aura :
+ - un nom français
+ - une traduction anglaise
+ - une traduction italienne
+
+ Une fois les données reçues par le client, afficher
+ les fruits dans le DOM sous forme d'un tableau html
+ à 3 colonnes (Nom fr, Nom En, Nom It)
+
+Côté serveur, ajouter une route '/fruits'
+Utiliser jQuery pour le ciblage des élements
