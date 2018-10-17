@@ -1,0 +1,14 @@
+section {
+  display: none
+}
+
+h2 {
+  cursor: pointer
+}
+
+.highlighted {
+  color: orange;
+  font-size: 3rem;
+  font-weight: bold;
+  text-decoration: underline
+}
