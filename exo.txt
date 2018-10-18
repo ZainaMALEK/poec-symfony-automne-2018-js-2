@@ -16,3 +16,12 @@ Chaque fruit de cette collection aura :
 
 Côté serveur, ajouter une route '/fruits'
 Utiliser jQuery pour le ciblage des élements
+
+
+*** projet 4 Exo ***
+Sous le blockquote, ajouter :
+  - un menu déroulant listant des auteurs.
+  - un bouton de validation
+
+Au clic sur le bouton, on affiche dans le DOM la liste des
+proverbes liés à l'auteur sélectionné

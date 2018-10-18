@@ -31,6 +31,9 @@
       })
       .then(res => res.json())
       .then(res => {
+        // si le tableau reçu contient au moins au proverbe
+        // on injecte dans le DOM un paragraphe par proverbe
+        // itéré
         if (res.length > 0) {
           let html = '';
           res.forEach(item => {
@@ -38,6 +41,7 @@
           })
           domList.html(html);
         } else {
+          // si le tableau reçu est vide
           domList.html('<p>Aucun proverbe pour cet auteur</p>');
         }
       })
