@@ -25,3 +25,11 @@ Sous le blockquote, ajouter :
 
 Au clic sur le bouton, on affiche dans le DOM la liste des
 proverbes liés à l'auteur sélectionné
+
+
+
+*** projet 5 Exo ***
+Dès le chargement de app.js, afficher dans le DOM la liste de fruits FR en provenance du serveur. Cette liste sera récupérée par une requête ajax et affichée sous forme d'une liste non ordonnée (ul).
+
+Placer des drapeaux En et It dans l'interface.
+Le clic sur l'un des drapeaux, déclenchera une requête ajax qui renverra la liste des fruits dans la langue correspondante. Au retour de la requête, cette nouvelle liste remplacera la précédente dans le DOM.
