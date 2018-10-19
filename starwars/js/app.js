@@ -1,10 +1,17 @@
 (function() {
 
+  // variable globale
+  let ship = {
+    life: 3
+  }
+
   $(document).ready(function() {
     const game$ = $('#game');
     const ship$ = $('#ship');
+    const life$ = $('#life');
     let asteroids$ = $('.asteroid');
 
+    computeLife();
     animBg();
     generateAsteroid();
 
@@ -35,18 +42,27 @@
           let asteTop = aste.offset().top;
 
           if (asteTop > 390) {
-            // zone à risque, collission possible avec le vaisseau
+            // zone à risque, collision possible avec le vaisseau
             // récupération de la position x du vaisseau et de l'astéroide
             let shipLeft = ship$.offset().left;
             let asteLeft = aste.offset().left;
 
             if ((asteLeft + 40 >= shipLeft)
               && (asteLeft <= shipLeft + 50)) {
-                ship$.remove();
+                // si les conditions sont vraies,
+                // il y a contact entre l'astéroide et le vaisseau
+                // asteroide retiré du jeu au moment de l'impact
+                aste.remove();
+
+                ship.life--; // le vaisseau perd une vie
+                computeLife();
               }
           }
 
           if(asteTop > 470) {
+            // l'astéroide n'est presque plus visible (overflow: hidden)
+            // dans la zone de jeu, mais il existe encore dans le DOM
+            // par souci d'efficacité, on le retire du DOM
             aste.remove();
           }
         })
@@ -67,6 +83,18 @@
       return Math.floor(Math.random() * 400)
     }
 
+    function computeLife() {
+      life$.html(''); // purge du div#life avant insertion
+
+      if (ship.life > 0) { // s'il reste au moins une vie
+        for(let i=0; i<ship.life; i++) {
+          life$.append('<img class="heart" src="img/heart.png">');
+        }
+      } else {
+        $('body').html('<h1>*** GAME OVER ***</h1>');
+      }
+
+    }
   })
 
 })() // fin fonction englobante

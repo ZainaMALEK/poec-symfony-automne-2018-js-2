@@ -33,3 +33,7 @@ Dès le chargement de app.js, afficher dans le DOM la liste de fruits FR en prov
 
 Placer des drapeaux En et It dans l'interface.
 Le clic sur l'un des drapeaux, déclenchera une requête ajax qui renverra la liste des fruits dans la langue correspondante. Au retour de la requête, cette nouvelle liste remplacera la précédente dans le DOM.
+
+
+*** projet starwars Exo ***
+Au chargement du jeu, attribuer 3 vies au vaisseau et afficher ce nombre dans l'interface. Lorsque le vaisseau est touché, diminuer ce nombre de vies. Quand le nombre de vies atteint 0, afficher: GAME OVER

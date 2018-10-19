@@ -32,3 +32,12 @@ body {
   top: 0;
   left: 0
 }
+
+#life {
+  position:absolute;
+  left: 240px
+}
+
+.heart {
+  height: 50px;
+}
