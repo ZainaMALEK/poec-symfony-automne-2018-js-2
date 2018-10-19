@@ -41,3 +41,13 @@ body {
 .heart {
   height: 50px;
 }
+
+.bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: yellow;
+  position: absolute;
+  left: 0;
+  top: 0
+}

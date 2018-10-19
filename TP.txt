@@ -1,0 +1,17 @@
+*** TP ***
+Gérer le score. 1 point par astéroide détruit.
+
+A chaque fois que 10 pts sont marqués, on regagne 1 vie.
+On ne peut pas dépasser 3 vies.
+
+En fonction du nombres de points marqués:
+1/ Afficher des messages
+ex:
+  - 20 pts, on affiche "Bien joué"
+  - 30 pts, on affiche "Tu es très fort"
+  - 40 pts, on affiche "Niveau Abdel"
+Le message rester à l'écran 3 secondes.
+
+2/ Augmenter la vitesse des astéroides
+
+Lorsque Game Over, proposer un bouton rejouer

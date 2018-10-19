@@ -10,11 +10,11 @@
     const ship$ = $('#ship');
     const life$ = $('#life');
     let asteroids$ = $('.asteroid');
+    let bullets$ = $('.bullet');
 
     computeLife();
     animBg();
     generateAsteroid();
-
 
     $(document).on('keyup', function(e) {
 
@@ -24,6 +24,11 @@
 
       if (e.key == 'ArrowLeft') {
         ship$.css({'left':'-=20'})
+      }
+
+      // si on appuie sur Espace, une balle est générée
+      if (e.key == ' ') {
+        generateBullet();
       }
 
     })
@@ -37,15 +42,18 @@
         // déplacement des astéroides
         asteroids$.css('top', '+=5');
 
+        // déplacement des balles
+        bullets$.css('top', '-=10');
+
         asteroids$.each(function() {
           let aste = $(this);
           let asteTop = aste.offset().top;
+          let asteLeft = aste.offset().left;
 
           if (asteTop > 390) {
             // zone à risque, collision possible avec le vaisseau
             // récupération de la position x du vaisseau et de l'astéroide
             let shipLeft = ship$.offset().left;
-            let asteLeft = aste.offset().left;
 
             if ((asteLeft + 40 >= shipLeft)
               && (asteLeft <= shipLeft + 50)) {
@@ -65,7 +73,27 @@
             // par souci d'efficacité, on le retire du DOM
             aste.remove();
           }
-        })
+
+          // boucle sur les bullets
+          bullets$.each(function() {
+            let bul = $(this);
+            let bulTop = bul.offset().top;
+            let bulLeft = bul.offset().left;
+
+            let contactX = ((asteLeft + 40) >= bulLeft) && (asteLeft <= (bulLeft + 8));
+            let contactY = ((asteTop + 40) >= bulTop) && (asteTop <= (bulTop + 8));
+
+            if (contactX && contactY) {
+              // contact entre l'asteroide et la balle
+              // on retire les deux du DOM
+              aste.remove();
+              bul.remove();
+            }
+
+          })
+
+
+        }) // fin de boucle sur asteroides
 
       }, 1000/24)
     }
@@ -94,6 +122,15 @@
         $('body').html('<h1>*** GAME OVER ***</h1>');
       }
 
+    }
+
+    function generateBullet() {
+      let shipLeft = ship$.offset().left;
+      let shipTop = ship$.offset().top;
+      let style = `top:${shipTop}px;left:${shipLeft + 21}px`;
+
+      game$.append('<div class="bullet" style="'+style+'"></div>')
+      bullets$ = $('.bullet');
     }
   })
 
